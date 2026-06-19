@@ -20,7 +20,7 @@ export const TopNav = () => {
     setError(null);
     setResult(null);
     try {
-      const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://127.0.0.1:8000';
+      const backendUrl = process.env.REACT_APP_BACKEND_URL || 'https://vectorshift-assemenet-gauravkatara.vercel.app';
       const res = await fetch(`${backendUrl}/pipelines/parse`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
