@@ -255,7 +255,7 @@ export const RightSidebar = () => {
 
   useEffect(() => {
     setIsCollapsed(!selectedNode);
-  }, [selectedNode?.id]);
+  }, [selectedNode]);
 
   // Get icon and color from registry
   const config = selectedNode ? NODE_CONFIGS[selectedNode.type] : null;
