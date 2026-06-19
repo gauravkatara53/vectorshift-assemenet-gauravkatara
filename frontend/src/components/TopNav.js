@@ -20,7 +20,8 @@ export const TopNav = () => {
     setError(null);
     setResult(null);
     try {
-      const res = await fetch('http://127.0.0.1:8000/pipelines/parse', {
+      const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://127.0.0.1:8000';
+      const res = await fetch(`${backendUrl}/pipelines/parse`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nodes, edges }),
@@ -333,18 +334,7 @@ export const TopNav = () => {
                 </div>
               </div>
               <div style={{ fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '20px', lineHeight: 1.6 }}>
-                {error}. Make sure the backend is running at{' '}
-                <code
-                  style={{
-                    background: 'var(--bg-app)',
-                    padding: '1px 6px',
-                    borderRadius: '3px',
-                    fontSize: '12px',
-                    color: 'var(--text-primary)',
-                  }}
-                >
-                  localhost:8000
-                </code>
+                {error}. Make sure the backend server is running and accessible.
               </div>
               <button
                 onClick={() => setError(null)}
